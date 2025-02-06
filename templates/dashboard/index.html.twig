@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+<main class="bg-light vh-100">
+    <div class="container-xxl h-100">
+        <div class="row h-100">
+            <!-- Sidebar -->
+            <div class="col-md-4 col-lg-3 bg-dark text-light p-4 d-flex flex-column align-items-center">
+                <!-- User Profile Info -->
+                <div class="text-center">
+                    <h3>Welcome back</h4>
+                    <h4>{{ app.user.firstName }} {{app.user.lastName}}</h4>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="w-100">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-dark">
+                            <a href="{{ path('app_dashboard') }}" class="text-light text-decoration-none">
+                                <i class="bi bi-house-door"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="list-group-item bg-dark">
+                            <a href="" class="text-light text-decoration-none">
+                                <i class="bi bi-card-list"></i> My Listings
+                            </a>
+                        </li>
+                        <li class="list-group-item bg-dark">
+                            <a href="" class="text-light text-decoration-none">
+                                <i class="bi bi-plus-circle"></i> Add Listing
+                            </a>
+                        </li>
+                        <li class="list-group-item bg-dark">
+                            <a href="{{path('app_logout')}}" class="text-danger text-decoration-none">
+                                <i class="bi bi-box-arrow-right"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-8 col-lg-9 p-4">
+                <h2>Welcome, {{ app.user.userIdentifier }}!</h2>
+                <p>Manage your listings and account settings here.</p>
+                
+                <div class="card p-3 shadow-sm">
+                    <h5>My Recent Listings</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Listing 1</li>
+                        <li class="list-group-item">Listing 2</li>
+                        <li class="list-group-item">Listing 3</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Market Place
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+	<main class="bg-white pb-5">
+		<div class="hero-section">
+			<div class="container-xxl text-center mt-5 mb-5">
+				<h2 class="fs-1">Welcome to the biggest listing site.<br>Find Anything You Are Looking For!</h2>
+			</div>
+		</div>
+		<div class="navbar bg-light">
+			<div class="container-xxl">
+				<ul class="navbar-nav d-flex flex-row">
+					<li class="nav-link me-3">
+						<a class="nav-link active border-end border-black pe-2 pb-0 pt-0" href="">
+							<i class="bi bi-card-list me-1"></i>Latest listings</a>
+					</li>
+					<li class="nav-link me-3">
+						<a class="nav-link  border-end border-black pe-2 pb-0 pt-0" href="">
+							<i class="bi bi-boxes me-1"></i>Categories</a>
+					</li>
+					<li class="nav-link me-3">
+						<a class="nav-link  border-end border-black pe-2 pb-0 pt-0" href="">
+							<i class="bi bi-heart me-1"></i>Favorites</a>
+					</li>
+					<li class="nav-link me-3">
+						<a class="nav-link  border-end border-black pe-2 pb-0 pt-0" href="">
+							<i class="bi bi-chat-left me-1"></i>Messages</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container mt-5">
+		<div class="row">
+			{% include 'home/includes/aside.html.twig' %}
+			<div class="col-9 row">
+				<div class="col-12 col-md-4 rounded-1 bg-white border h-">
+					<div>
+						<img class="img-thumbnail mt-2 border-0" src="{{ asset('images/iphone.jpg')}}">
+					</div>
+					<div>
+						<p class="fs-4 fw-bold mt-3">Title</p>
+					</div>
+					<div>
+						<p class="fs-6">Short description</p>
+					</div>
+					<div class="row mb-3">
+						<div class="col-6 d-flex align-items-center">
+							<p class="fw-bold fs-6 mb-0">200$</p>
+						</div>
+						<div class="col-6 d-flex align-items-center justify-content-end">
+							<a class="btn btn-primary text-decoration-none" href="">More details</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-4">.col-6 .col-md-4</div>
+				<div class="col-12 col-md-4">.col-6 .col-md-4</div>
+			</div>
+		</div>
+	</div>
+</main>{% endblock %}
