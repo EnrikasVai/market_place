@@ -41,27 +41,27 @@
 		<div class="row">
 			{% include 'home/includes/aside.html.twig' %}
 			<div class="col-9 row">
+				{% for listing in listings| reverse | slice(0,10)  %}
 				<div class="col-12 col-md-4 rounded-1 bg-white border h-">
 					<div>
-						<img class="img-thumbnail mt-2 border-0" src="{{ asset('images/iphone.jpg')}}">
+						<img class="img-thumbnail mt-2 border-0" src="{{ listing.thumbnail ? asset('uploads/' ~ listing.thumbnail) :asset('images/iphone.jpg')}}">
 					</div>
 					<div>
-						<p class="fs-4 fw-bold mt-3">Title</p>
+						<p class="fs-4 fw-bold mt-3">{{ listing.title }}</p>
 					</div>
 					<div>
-						<p class="fs-6">Short description</p>
+						<p class="fs-6">{{ listing.description }}</p>
 					</div>
 					<div class="row mb-3">
 						<div class="col-6 d-flex align-items-center">
-							<p class="fw-bold fs-6 mb-0">200$</p>
+							<p class="fw-bold fs-6 mb-0">{{ listing.price }}$</p>
 						</div>
 						<div class="col-6 d-flex align-items-center justify-content-end">
 							<a class="btn btn-primary text-decoration-none" href="">More details</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-12 col-md-4">.col-6 .col-md-4</div>
-				<div class="col-12 col-md-4">.col-6 .col-md-4</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>

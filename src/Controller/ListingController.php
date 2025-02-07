@@ -29,7 +29,19 @@ final class ListingController extends AbstractController
         $form = $this->createForm(ListingType::class, $listing);
 
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
+            $thumbnailFile = $form->get('thumbnail')->getData();
+            if ($thumbnailFile) {
+                $newFilename = uniqid().'.'.$thumbnailFile->guessExtension();
+
+                // Move the file to the directory where images are stored
+                $thumbnailFile->move(
+                    $this->getParameter('uploads_directory'), // Define this in `services.yaml`
+                    $newFilename
+                );
+                $listing->setThumbnail($newFilename);
+            }
             $entityManager->persist($listing);
             $entityManager->flush();
 

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Listing;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,8 +16,11 @@ final class HomeController extends AbstractController
     {
         $categories = $entityManager->getRepository(Category::class)->findBy(['parent'=>null]);
 
+        $listings = $entityManager->getRepository(Listing::class)->findAll();
+
         return $this->render('home/index.html.twig', [
             'categories' => $categories,
+            'listings' => $listings
         ]);
     }
 }

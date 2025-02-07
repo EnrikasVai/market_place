@@ -1,14 +1,46 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container mt-4">
-        <h2>Create New Listing</h2>
+<main class="d-flex align-items-center justify-content-center vh-100 bg-light">
+
+    <div class="card shadow p-4" style="width: 100%; max-width: 800px;">
+
+        <h2 class="text-center mb-4">Create New Listing</h2>
         {{ form_start(form) }}
-        {{ form_row(form.title) }}
-        {{ form_row(form.description) }}
-        {{ form_row(form.price) }}
-        {{ form_row(form.category) }}
-        <button type="submit" class="btn btn-success mt-3">Submit</button>
+
+        <div class="mb-3">
+            {{ form_label(form.thumbnail, 'Thumbnail Image', {'label_attr':{'class': 'form-label'}}) }}
+            {{ form_widget(form.thumbnail, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.thumbnail) }}
+
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.title, 'Title', {'label_attr':{'class': 'form-label'}}) }}
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.title) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.description, 'Description', {'label_attr':{'class': 'form-label'}}) }}
+            {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.description) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.price, 'Price in USD', {'label_attr':{'class': 'form-label'}}) }}
+            {{ form_widget(form.price, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.price) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.category, 'Category', {'label_attr':{'class': 'form-label'}}) }}
+            {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.category) }}
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">List</button>
         {{ form_end(form) }}
     </div>
+</main>
 {% endblock %}

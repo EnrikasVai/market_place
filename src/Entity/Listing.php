@@ -23,6 +23,9 @@ class Listing
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 0)]
     private ?string $price = null;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private ?string $thumbnail = null;
+
     #[ORM\ManyToOne(inversedBy: 'listings')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
@@ -33,6 +36,18 @@ class Listing
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getThumbnail(): ?string
+    {
+        return $this->thumbnail;
+    }
+
+    public function setThumbnail(string $thumbnail): self
+    {
+        $this->thumbnail = $thumbnail;
+
+        return $this;
     }
 
     public function getTitle(): ?string
